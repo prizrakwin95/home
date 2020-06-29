@@ -23,23 +23,17 @@ public class SimpleQuartzJob  implements Job{
 
     public void execute(JobExecutionContext context) throws JobExecutionException {
 
-//        String jobname = context.getJobDetail().getKey().getName().split("\\.")[0];
-//        String triggername = context.getTrigger().getKey().getName().split("\\.")[0];
-
         JobDataMap data = context.getJobDetail().getJobDataMap();
 
         YandexAdrees yandexAdrees = (YandexAdrees) data.get("yandexAdrees");
 
         try(SeleniumCode seleniumCode = new SeleniumCode()){
-//            if(seleniumCode.getDriver().manage().)
             LocalTime localTime = seleniumCode.getTimeToDestination(yandexAdrees);
             saveToDisk(yandexAdrees,localTime);
         } catch (Exception e) {
             e.printStackTrace();
         }
-//        SeleniumCode seleniumCode = new SeleniumCode();
-//        seleniumCode.getTimeToDestination(yandexAdrees);
-//        System.out.println("сработало");
+
 
     }
 

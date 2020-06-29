@@ -61,17 +61,8 @@ public class AppMain extends Application {
     public void stop() throws Exception {
         SchedulerFactory schedulerFactory = new StdSchedulerFactory();
         schedulerFactory.getScheduler().shutdown();
-//        schedulerFactory.getAllSchedulers().forEach(c-> {
-////            c.getSchedulerName();
-//            try {
-//                c.shutdown();
-//
-//            } catch (SchedulerException e) {
-//                e.printStackTrace();
-//            }
-//        });
+
         super.stop();
 
-       // System.exit(0);
     }
 }

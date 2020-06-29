@@ -14,13 +14,7 @@ import java.util.Observable;
 public class YandexAdrees  {
     private String name;
     private String site;
-//    private String centerMap;
-//    private String coordinatA_X;
-//    private String coordinatA_Y;
-//    private String coordinatB_X;
-//    private String coordinatB_Y;
-//    private String coordinatC_X;
-//    private String coordinatC_Y;
+
     private String status = "STOPED";
 
     public YandexAdrees() {
@@ -45,77 +39,8 @@ public class YandexAdrees  {
     public YandexAdrees(String name, String site) {
         this.name = name;
         this.site = site;
-//        this.centerMap = centerMap;
-//        this.coordinatA_X = coordinatA_X;
-//        this.coordinatA_Y = coordinatA_Y;
-//        this.coordinatB_X = coordinatB_X;
-//        this.coordinatB_Y = coordinatB_Y;
-//        this.coordinatC_X = coordinatC_X;
-//        this.coordinatC_Y = coordinatC_Y;
     }
 
-//    public String getCenterMap() {
-//        return centerMap;
-//    }
-//
-//    public void setCenterMap(String centerMap) {
-//        this.centerMap = centerMap;
-//    }
-
-//    public String getCoordinatA_X() {
-//        return coordinatA_X;
-//    }
-//
-//    public void setCoordinatA_X(String coordinatA_X) {
-//        this.coordinatA_X = coordinatA_X;
-//    }
-//
-//    public String getCoordinatA_Y() {
-//        return coordinatA_Y;
-//    }
-//
-//    public void setCoordinatA_Y(String coordinatA_Y) {
-//        this.coordinatA_Y = coordinatA_Y;
-//    }
-//
-//    public String getCoordinatB_X() {
-//        return coordinatB_X;
-//    }
-//
-//    public void setCoordinatB_X(String coordinatB_X) {
-//        this.coordinatB_X = coordinatB_X;
-//    }
-//
-//    public String getCoordinatB_Y() {
-//        return coordinatB_Y;
-//    }
-//
-//    public void setCoordinatB_Y(String coordinatB_Y) {
-//        this.coordinatB_Y = coordinatB_Y;
-//    }
-//
-//    public String getCoordinatC_X() {
-//        return coordinatC_X;
-//    }
-//
-//    public void setCoordinatC_X(String coordinatC_X) {
-//        this.coordinatC_X = coordinatC_X;
-//    }
-//
-//    public String getCoordinatC_Y() {
-//        return coordinatC_Y;
-//    }
-//
-//    public void setCoordinatC_Y(String coordinatC_Y) {
-//        this.coordinatC_Y = coordinatC_Y;
-//    }
-
-//    public String getCoords(){
-//        String coords = "";
-//
-//
-//        return coords;
-//    }
 
     public String getSite() {
         return site;
@@ -213,7 +138,6 @@ public class YandexAdrees  {
             mar.setProperty(Marshaller.JAXB_ENCODING, "UTF-8"); //NOI18N
             mar.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
             mar.marshal(jaxbmessage, configFile);
-//            System.out.println("Сохранил Маршрут - "+dataType.getName());
         }catch (Exception e){
             e.printStackTrace();
         }

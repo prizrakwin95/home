@@ -160,13 +160,7 @@ public class JavaFX {
         Button buttonDeleteRoute = new Button("Удалить маршрут");
         buttonDeleteRoute.setDisable(true);
         HBox hBoxButton = new HBox(buttonSaveRoute,buttonInBuffer,buttonDeleteRoute);
-//        HBox.setHgrow(buttonDeleteRoute,);
         HBox.setMargin(buttonDeleteRoute,new Insets(0, 0, 0, 130));
-//        TextField textFieldCoordsA_X = new TextField();
-//
-//        vBoxLeft.getChildren().addAll(labelLeftTop,separator,hBoxName,hBoxCoordA
-//        ,hBoxCoordB
-//        ,hBoxCoordC);
 
 
         TableView<YandexAdrees> tableView = new TableView<>();
@@ -180,22 +174,12 @@ public class JavaFX {
         columnCoord.setText("Site");
         columnCoord.setCellValueFactory(new PropertyValueFactory<YandexAdrees, String>("site"));
 
-//        TableColumn<YandexAdrees,String> columnSite = new TableColumn<>();
-//        columnSite.setText("Site");
-//        columnSite.setCellValueFactory(new PropertyValueFactory<YandexAdrees, String>("site"));
-//        columnSite.setEditable(true);
-
-//        TableColumn<YandexAdrees,String> columnCount = new TableColumn<>();
-//        columnCount.setText("DataCount");
-//        columnCount.setCellValueFactory(new PropertyValueFactory<YandexAdrees, String>("count"));
-
         TableColumn<YandexAdrees,String> columnStatus = new TableColumn<>();
         columnStatus.setText("Status");
         columnStatus.setCellValueFactory(new PropertyValueFactory<YandexAdrees, String>("status"));
 
         VBox vBoxLeft = new VBox();
         tableView.getColumns().addAll(columnName,columnStatus,columnCoord);
-//,columnSite ,columnCount
         tableView.getSelectionModel().setCellSelectionEnabled(false);
 
         JavaFX.updateTable(tableView);
@@ -251,21 +235,6 @@ public class JavaFX {
         Button buttonStart = new Button("Start");
         buttonStart.setDisable(true);
 
-//        tableView.getItems().addListener(new ListChangeListener<YandexAdrees>() {
-//            @Override
-//            public void onChanged(Change<? extends YandexAdrees> c) {
-//                System.out.println(c);
-//            }
-//        });
-//        tableView.getItems().
-
-//        SchedulerFactory schedulerFactory = new StdSchedulerFactory();
-//        try {
-//            SchedulListner schedulerListener = new SchedulListner();
-//            schedulerFactory.getScheduler().getListenerManager().addSchedulerListener(schedulerListener);
-//        } catch (SchedulerException e) {
-//            e.printStackTrace();
-//        }
         Button buttonStop = new Button("Stop");
         buttonStop.setDisable(true);
 
@@ -291,13 +260,7 @@ public class JavaFX {
             if(tableView.getSelectionModel().getSelectedItem() != null){
                 SchedulerFactory schedulerFactory = new StdSchedulerFactory();
                 try {
-//                    System.out.println(new Date());
-//                    schedulerFactory.getScheduler().getTrigger(
-//                            new TriggerKey(tableView.getSelectionModel().getSelectedItem().getName().replaceAll("\\s",""),"group")
-//                    );
-//                    schedulerFactory.getScheduler().getJobDetail(
-//                            new JobKey(tableView.getSelectionModel().getSelectedItem().getName().replaceAll("\\s",""),"group")
-//                    );
+
                     schedulerFactory.getScheduler().unscheduleJob(
                             new TriggerKey(tableView.getSelectionModel().getSelectedItem().getName().replaceAll("\\s",""),"group")
                     );
@@ -305,11 +268,6 @@ public class JavaFX {
                     buttonStop.setDisable(true);
                     buttonStart.setDisable(false);
                     tableView.refresh();
-
-//                    schedulerFactory.getScheduler().pauseTrigger(
-//                            new TriggerKey(tableView.getSelectionModel().getSelectedItem().getName().replaceAll("\\s",""),"group")
-//                    );
-
 
                 } catch (SchedulerException e) {
                     e.printStackTrace();
@@ -368,9 +326,6 @@ public class JavaFX {
 
         AnchorPane flowPaneCenter = new AnchorPane();
 
-//        flowPaneCenter.autosize();
-
-//        flowPaneCenter.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         VBox vBoxCenter = new VBox();
         Button buttonRefresh = new Button("Обновить График");
         buttonRefresh.setDisable(true);
@@ -381,25 +336,12 @@ public class JavaFX {
         hBoxStartStop.getChildren().add(date);
 
 
-//        vBoxLeft.getChildren().add(buttonRefresh);
-//        vBoxCenter.getChildren().addAll(buttonRefresh);
-
-//        vBoxCenter.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-//        flowPaneCenter.getChildren().add(vBoxCenter);
-//        flowPaneCenter.
         CategoryAxis xAxis = new CategoryAxis();
         xAxis.setLabel("Время дня");
         NumberAxis yAxis = new NumberAxis();
         yAxis.setLabel("Минут в пути");
         LineChart<String,Number> lineChart = new LineChart<String, Number>(xAxis,yAxis);
-//        lineChart.autosize();
         lineChart.setAnimated(false);
-//        primaryStage
-//        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-//        JFreeChart chart = ChartFactory.createLineChart("Титл-Хуитл","Время дня","Время в пути",dataset, PlotOrientation.HORIZONTAL,true,true,true);
-//        XYChart.Series series = new XYChart.Series();
-//        series.setName("Время в пути");
-//        lineChart.getData().add(series);
 
         lineChart.getXAxis().animatedProperty().setValue(false);
         lineChart.getXAxis().setTickLabelGap(1);
@@ -465,10 +407,6 @@ public class JavaFX {
                     e.printStackTrace();
                 }
 
-                //XYChart.Series series1 =
-//                lineChart.getData().addAll(series1);
-
-
 
             }
         });
@@ -490,20 +428,12 @@ public class JavaFX {
 
 
 
-//        vBoxCenter.getChildren().add(lineChart);
         flowPaneCenter.getChildren().addAll(lineChart);
         borderPane.setCenter(flowPaneCenter);
         AnchorPane.setLeftAnchor(lineChart, 30.0);
         AnchorPane.setTopAnchor(lineChart, 30.0);
         AnchorPane.setRightAnchor(lineChart, 10.0);
         AnchorPane.setBottomAnchor(lineChart, 10.0);
-
-//        borderPane.getCenter().autosize();
-//        borderPane.getCenter().resize(Double.MAX_VALUE,Double.MAX_VALUE);
-
-//        FlowPane flowPaneRight = new FlowPane();
-//        borderPane.setRight(flowPaneRight);
-
 
 
         borderPane.getLeft().setStyle(style);
@@ -523,7 +453,6 @@ public class JavaFX {
 
     private static void lineChartUpdate(LineChart<String,Number> lineChart, YandexAdrees yandexAdrees,LocalDate localDate){
 
-//        YandexAdrees yandexAdrees = (YandexAdrees) tableView.getSelectionModel().getSelectedItem();
         if (yandexAdrees == null){
             lineChart.getData().clear();
             return;
@@ -574,7 +503,6 @@ public class JavaFX {
 
                 Font bold = Font.font(Font.getDefault().getFamily(),FontWeight.BOLD, Font.getDefault().getSize());
                 lineChart.getXAxis().setTickLabelFont(bold);
-//                lineChart.getXAxis().setTickLabelFont(bold).setStyle("-fx-font-size: 14;-fx-font-weight: bolder;");
                 lineChart.getData().forEach(c->{
                     c.getData().forEach(b->{
                         Tooltip tooltip = new Tooltip("Минуты: "+b.getYValue());
@@ -588,10 +516,7 @@ public class JavaFX {
             lineChart.getData().clear();
             System.out.println("File Not Found "+configFile.getAbsoluteFile());
         }
-//        return series;
 
-
-//        return null;
     }
 
     public static void updateTable(TableView tableView){

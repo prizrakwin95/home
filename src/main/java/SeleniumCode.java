@@ -4,7 +4,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import pojo.YandexAdrees;
 
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class SeleniumCode implements AutoCloseable {
@@ -23,13 +22,12 @@ public class SeleniumCode implements AutoCloseable {
 
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
-//        options.addArguments("headless");
+        options.addArguments("headless");
 
         this.driver = new ChromeDriver(options);
 
         driver.get(site);
 
-//        auto-route-snippet-view
 //        String text = driver.findElement(By.className("driving-route-view__route-title-primary")).getText();
         String text = driver.findElement(By.className("auto-route-snippet-view__route-title-primary")).getText();
         System.out.println(text);
@@ -53,30 +51,9 @@ public class SeleniumCode implements AutoCloseable {
         System.out.println("min - "+min);
         LocalTime localTime = LocalTime.of(hours,min);
         System.out.println("localTime - " + localTime);
-//        String[] hourssplit = text.split("ч");
 
-//        System.out.println("hourssplit = "+hourssplit.length+" - "+hourssplit[0]);
-//        if(hourssplit.length>1){
-//            hours = Integer.parseInt(hourssplit[0]);
-//        }
-
-//        String[] minutes = text.split("мин");
-//        System.out.println("minutes = "+minutes.length+" - "+minutes[0]);
-//        if(minutes.length>1){
-//            min = Integer.parseInt(minutes[0]);
-//        }
-//        System.out.println(hours+" - "+min);
-
-
-//        driver.close();
         driver.quit();
-//        driver.
 
-//        try {
-//            System.exit(0);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
         return localTime;
     }
 
@@ -84,7 +61,5 @@ public class SeleniumCode implements AutoCloseable {
     @Override
     public void close() throws Exception {
         this.driver.quit();
-
-//        this.driver.quit();
     }
 }
