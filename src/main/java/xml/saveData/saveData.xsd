@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="main" type="mainType"/>
+  <xs:complexType name="dataType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="timeToDestination"/>
+      <xs:element type="xs:string" name="localTime"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mainType">
+    <xs:sequence>
+      <xs:element type="dataType" name="data" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

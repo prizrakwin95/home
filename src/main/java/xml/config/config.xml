@@ -1,0 +1,14 @@
+<main>
+    <data>
+        <name>На работу</name>
+        <site>https://yandex.ru/maps/213/moscow/?mode=routes&amp;rtext=55.871657,37.686779~55.866096,37.683557&amp;rtt=auto</site>
+    </data>
+    <data>
+        <name>До Коляна</name>
+        <site>https://yandex.ru/maps/213/moscow/?mode=routes&amp;rtext=55.871425,37.686868~55.764374,37.800604&amp;rtt=auto</site>
+    </data>
+    <data>
+        <name>Минск</name>
+        <site>https://yandex.ru/maps/213/moscow/?mode=routes&amp;rtext=55.87142,37.686868~53.902496,27.561481&amp;rtt=auto</site>
+    </data>
+</main>
