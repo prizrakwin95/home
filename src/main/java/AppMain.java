@@ -63,6 +63,6 @@ public class AppMain extends Application {
         schedulerFactory.getScheduler().shutdown();
 
         super.stop();
-
+        System.out.println("stop");
     }
 }
